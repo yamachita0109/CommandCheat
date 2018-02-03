@@ -1,58 +1,27 @@
-var activeClassName = 'mui--is-active';
+// TODO to cool
+localStorageJson.push(
+	{
+		message: '+ New Tab',
+		panelName: 'puls-panel',
+		lists: []
+	}
+);
+var json = localStorageJson.map((o, i)=>{
+	o.isActive = i === 0;
+	o.activeClass = consts.activeClassName;
+	o.lists = o.lists.map((o)=>{
+
+	});
+	return o;
+});
 
 var commandTabs = new Vue({
-	el: '#command-tabs',
-	data: {
-		items: [
-			{
-				message: 'Git Command',
-				isActive: true,
-				activeClass: activeClassName,
-				panelName: 'git-panel'
-			},
-			{
-				message: 'Linux Command',
-				isActive: false,
-				activeClass: activeClassName,
-				panelName: 'linux-panel'
-			}
-		]
-	}
+	el: consts.tabsElement,
+	data: {items: json}
 });
 
 var commandTab = new Vue({
-	el: '#command-tab',
-	data: {
-		items: [
-			{
-				message: 'Git Command',
-				isActive: true,
-				activeClass: activeClassName,
-				panelName: 'git-panel',
-				lists: [
-					{
-						command: 'git diff --color-words',
-						memo: 'いい感じの差分表示'
-					},
-					{
-						command: 'git log --graph --all --format="%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s"',
-						memo: 'ログおしゃん'
-					}
-				]
-			},
-			{
-				message: 'Linux Command',
-				isActive: false,
-				activeClass: activeClassName,
-				panelName: 'linux-panel',
-				lists: [
-					{
-						command: 'find . -type f -name "*.js" | xargs grep keyword -n',
-						memo: '複数ファイルからテキスト検索'
-					}
-				]
-			}
-		]
-	}
+	el: consts.tabElement,
+	data: {items: json}
 });
 

@@ -14,6 +14,7 @@
 			return result;
 		},
 
+		// TODO to cool
 		showModal: function(s) {
 			var modalEl = document.createElement('div');
 			modalEl.style.margin = '20%';

@@ -5,14 +5,13 @@
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<link href="./css/lib/mui.min.css" rel="stylesheet" type="text/css">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-		rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+		crossorigin="anonymous">
 	<title>Command</title>
+	<link href="./css/index.css" rel="stylesheet" type="text/css">
 
-	<style>
-		.copy {
-			cursor: pointer;
-		}
-	</style>
+	<script src="./js/const.js"></script>
+	<script src="./json/test.js"></script>
 </head>
 <body>
 	<div class="main-container">
@@ -35,7 +34,12 @@
 					v-bind:class="[item.isActive == true ? item.activeClass : '']"
 					v-bind:id="[item.panelName]">
 					<div class="mui-panel">
-						<h1>{{item.message}}</h1>
+						<div class="mui-textfield mui-textfield--float-label" v-if="item.panelName === 'puls-panel'">
+							<input type="text" name="new-name">
+							<label>New Name</label>
+						</div>
+						<h1 v-else>{{item.message}}</h1>
+
 						<div class="mui-panel">
 							<table class="mui-table mui-table--bordered">
 								<thead>
@@ -60,7 +64,8 @@
 		</div>
 		<footer>
 			<div class="mui-container mui--text-center">
-				<a href="https://qiita.com/fukumone/items/73e1a9a62c5e4454263b">GitHub</a>
+				<a href="https://github.com/yamachita0109/CommandCheat"
+					target="_brank">GitHub</a>
 			</div>
 		</footer>
 	</div>
