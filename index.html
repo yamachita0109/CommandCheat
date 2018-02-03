@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://dev.ltp.f-power.co.jp:4461/ct/test/tool/com.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<link href="./css/lib/mui.min.css" rel="stylesheet" type="text/css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+		rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<title>Command</title>
+
+	<style>
+		.copy {
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="main-container">
+		<!-- Header -->
+		<header class="mui-appbar mui--z1"></header>
+		<div class="mui-container">
+			<!-- Tabs -->
+			<ul id="command-tabs" class="mui-tabs__bar">
+				<li v-for="item in items" 
+					v-bind:class="[item.isActive == true ? item.activeClass : '']">
+					<a v-bind:data-mui-controls="[item.panelName]" data-mui-toggle="tab">
+						{{item.message}}
+					</a>
+				</li>
+			</ul>
+
+			<!-- Tab -->
+			<div id="command-tab">
+				<div v-for="item in items" class="mui-tabs__pane"
+					v-bind:class="[item.isActive == true ? item.activeClass : '']"
+					v-bind:id="[item.panelName]">
+					<div class="mui-panel">
+						<h1>{{item.message}}</h1>
+						<div class="mui-panel">
+							<table class="mui-table mui-table--bordered">
+								<thead>
+									<tr>
+										<th>Copy</th>
+										<th>Command</th>
+										<th>Memo</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr v-for="list in item.lists" >
+										<td><i class="fa fa-clone copy"></i></td>
+										<td>{{list.command}}</td>
+										<td>{{list.memo}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div class="mui-container mui--text-center">
+				<a href="https://qiita.com/fukumone/items/73e1a9a62c5e4454263b">GitHub</a>
+			</div>
+		</footer>
+	</div>
+	<script src="./js/lib/vue.js"></script>
+	<script src="./js/initDisplay.js"></script>
+
+	<script src="./js/lib/mui.min.js"></script>
+	<script src="./js/copy.js"></script>
+
+</body></html>
