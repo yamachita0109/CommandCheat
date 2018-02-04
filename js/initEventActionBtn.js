@@ -61,7 +61,9 @@ function initEventAcctionBtn() {
 		// TODO There is no point in using vue.js...
 		clickAfter: function() {
 			initDisplayIns.main();
-			initEventAcctionBtn();
+			setTimeout(function(){
+				initEvent.const();
+			}, 100);
 		},
 
 		clickCopy: function(){
