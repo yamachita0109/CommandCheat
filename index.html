@@ -9,9 +9,6 @@
 		crossorigin="anonymous">
 	<title>Command</title>
 	<link href="./css/index.css" rel="stylesheet" type="text/css">
-
-	<script src="./js/const.js"></script>
-	<script src="./json/test.js"></script>
 </head>
 <body>
 	<div class="main-container">
@@ -23,7 +20,7 @@
 				<li v-for="item in items" 
 					v-bind:class="[item.isActive == true ? item.activeClass : '']">
 					<a v-bind:data-mui-controls="[item.panelName]" data-mui-toggle="tab">
-						{{item.message}}
+						{{item.title}}
 					</a>
 				</li>
 			</ul>
@@ -34,29 +31,48 @@
 					v-bind:class="[item.isActive == true ? item.activeClass : '']"
 					v-bind:id="[item.panelName]">
 					<div class="mui-panel">
-						<div class="mui-textfield mui-textfield--float-label" v-if="item.panelName === 'puls-panel'">
+<!-- 						<div class="mui-textfield mui-textfield--float-label"
+							v-if="item.panelName === 'puls-panel'">
 							<input type="text" name="new-name">
 							<label>New Name</label>
 						</div>
-						<h1 v-else>{{item.message}}</h1>
+						<h1 v-else>{{item.title}}</h1> -->
+						<h1>{{item.title}}</h1>
 
 						<div class="mui-panel">
-							<table class="mui-table mui-table--bordered">
-								<thead>
-									<tr>
-										<th>Copy</th>
-										<th>Command</th>
-										<th>Memo</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr v-for="list in item.lists" >
-										<td><i class="fa fa-clone copy"></i></td>
-										<td>{{list.command}}</td>
-										<td>{{list.memo}}</td>
-									</tr>
-								</tbody>
-							</table>
+							<div v-if="item.panelName !== 'setting-panel'">
+								<table class="mui-table mui-table--bordered m-buttom-0">
+									<thead>
+										<tr>
+											<th>Copy</th>
+											<th>Command</th>
+											<th>Memo</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr v-for="list in item.lists">
+											<td class="mui--text-center">
+												<i class="fa fa-clone copy"></i>
+											</td>
+											<td>{{list.command}}</td>
+											<td>{{list.memo}}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div v-else>
+								<div class="mui-textfield mui-textfield--float-label">
+									<textarea class="mui--is-empty mui--is-pristine mui--is-touched mui-textarea-custom"
+										id="json-text"></textarea>
+									<label>Input JSON</label>
+								</div>
+								<button class="mui-btn mui-btn--raised mui-btn--primary" id="save-btn">SAVE JSON</button>
+								<button class="mui-btn mui-btn--raised mui-btn--danger" id="delete-btn">DELETE JSON</button>
+								<a class="m-left-10" href="./json/sample.json" target="_brank">SAMPLE JSON</a>
+ 							</div>
+<!-- 							<div class="p-left-10">
+								<button class="mui-btn mui-btn--fab mini-btn" id="pls-btn">+</button>
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -69,10 +85,13 @@
 			</div>
 		</footer>
 	</div>
+	<script src="./js/const.js"></script>
+	<script src="./js/storage.js"></script>
+
 	<script src="./js/lib/vue.js"></script>
 	<script src="./js/initDisplay.js"></script>
 
 	<script src="./js/lib/mui.min.js"></script>
-	<script src="./js/copy.js"></script>
-
+	<script src="./js/initEventCopy.js"></script>
+	<script src="./js/initEventActionBtn.js"></script>
 </body></html>

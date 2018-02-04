@@ -1,0 +1,24 @@
+[
+  {
+    "title": "title1",
+    "lists": [
+      {
+        "command": "command1-1",
+        "memo": "memo1-1"
+      },
+      {
+        "command": "command1-2",
+        "memo": "memo1-2"
+      }
+    ]
+  },
+  {
+    "title": "title2",
+    "lists": [
+      {
+        "command": "command2-1",
+        "memo": "memo2-1"
+      }
+    ]
+  }
+]

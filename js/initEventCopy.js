@@ -1,4 +1,4 @@
-(function(){
+function initEventCopy() {
 	'use strict';
 	var common = {
 		copy: function(s) {
@@ -42,4 +42,5 @@
 	};
 
 	initEvent.const();
-})();
+};
+initEventCopy();

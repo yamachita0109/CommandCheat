@@ -1,3 +1,26 @@
+.m-left-10 {
+	margin-left: 10px;
+}
+
+.p-left-10 {
+	padding-left: 10px;
+}
+
+.m-buttom-0 {
+	margin-bottom: 0px;
+}
+
 .copy {
 	cursor: pointer;
+}
+
+.mui-btn--fab {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+}
+
+/* TODO so cool */
+.mui-textarea-custom {
+	height: 300px;
 }
