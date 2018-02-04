@@ -24,3 +24,43 @@
 .mui-textarea-custom {
 	height: 300px;
 }
+
+.message {
+	position: fixed;
+	top: -20px;
+	text-align: center;
+	height: 20px;
+	width: 100%;
+}
+
+.message.success {
+	background-color: #9FF781;
+}
+
+.message.error {
+	background-color: #FA5858;
+}
+
+.message.display {
+	animation-name: animate-message;
+	animation-duration: 3s;
+}
+
+/* TODO so cool */
+@keyframes animate-message {
+	0% {
+		top: -20px;
+	}
+
+	25% {
+		top: 0px;
+	}
+
+	75% {
+		top: 0px;
+	}
+
+	100% {
+		top: -20px;
+	}
+}

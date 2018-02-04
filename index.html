@@ -11,6 +11,10 @@
 	<link href="./css/index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+	<div class="message" id="message-area"
+		v-bind:class="[{display: isDisplay}, className]">
+		{{message}}
+	</div>
 	<div class="main-container">
 		<!-- Header -->
 		<header class="mui-appbar mui--z1"></header>
@@ -90,8 +94,8 @@
 
 	<script src="./js/lib/vue.js"></script>
 	<script src="./js/initDisplay.js"></script>
+	<script src="./js/initMessage.js"></script>
 
 	<script src="./js/lib/mui.min.js"></script>
-	<script src="./js/initEventCopy.js"></script>
 	<script src="./js/initEventActionBtn.js"></script>
 </body></html>

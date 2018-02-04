@@ -10,8 +10,8 @@ var initDisplay = function() {
 		try {
 			localStorageJson = JSON.parse(localStorageText);
 		} catch (e) {
-			// TODO handling
-			console.error('Failure in shaping JSON.')
+			initMessageIns.show(consts.message.errorParseJSON, consts.message.erroKey);
+			console.error(consts.message.errorParseJSON);
 		}
 		localStorageJson = localStorageJson ? localStorageJson : [];
 
@@ -37,7 +37,6 @@ var initDisplay = function() {
 				data: {items: json}
 			});
 		} else {
-			// console.log(commandTabs.$data, 'commandTabs');
 			Object.assign(commandTabs.$data, {items: json})
 		}
 
@@ -55,7 +54,6 @@ var initDisplay = function() {
 				}
 			});
 		} else {
-			// console.log(commandTab.$data, 'commandTab');
 			Object.assign(commandTab.$data, {items: json})
 		}
 
