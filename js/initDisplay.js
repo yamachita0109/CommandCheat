@@ -2,11 +2,11 @@
 // TODO There is no point in using vue.js...
 var initDisplay = function() {
 	var commandTabs = '',
-		commandTab = '';
+		commandTab = '',
+		localStorageJson,
+		localStorageText;
 	this.main = function() {
-		var localStorageJson,
-			localStorageText = storageMethod.get(consts.storageKey);
-
+		localStorageText = storageMethod.get(consts.storageKey);
 		try {
 			localStorageJson = JSON.parse(localStorageText);
 		} catch (e) {
@@ -37,19 +37,28 @@ var initDisplay = function() {
 				data: {items: json}
 			});
 		} else {
+			// console.log(commandTabs.$data, 'commandTabs');
 			Object.assign(commandTabs.$data, {items: json})
 		}
 
 		if (!commandTab) {
 			commandTab = new Vue({
 				el: consts.tabElement,
-				data: {items: json}
+				data: {items: json},
+				mounted: function() {
+					this.$nextTick(function () {
+						document.getElementById('json-text').value = localStorageText;
+					});
+				},
+				updated: function() {
+					document.getElementById('json-text').value = localStorageText;
+				}
 			});
 		} else {
+			// console.log(commandTab.$data, 'commandTab');
 			Object.assign(commandTab.$data, {items: json})
 		}
 
-		document.getElementById('json-text').value = localStorageText
 	};
 };
 var initDisplayIns = new initDisplay;
